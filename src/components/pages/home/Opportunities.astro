@@ -1,0 +1,125 @@
+---
+import OpportunitiesIconRight from '@images/home/icon-right.svg';
+import { getOpportunities } from '@sanityConfig';
+import PortableText from '@commons/PortableText.astro';
+const data = await getOpportunities();
+---
+
+<!-- Opportunities -->
+<section class="opportunities">
+    <div class="container">
+        <h3 class="title">Opportunities</h3>
+        <div class="opportunities-row">
+            {
+                data.map((dt: any) => (
+                    <article class="opportunities-card">
+                        <div class="opportunities-card__body">
+                            <h3 class="opportunities-card__title">{dt.title}</h3>
+                            <div class="text">
+                                <PortableText portableText={dt.content} />
+                            </div>
+
+                            <div class="opportunities-card__tags">
+                                {dt.tags.map((dtTag: any) => (
+                                    <a href="" class="opportunities-card__tag__button">
+                                       {dtTag.tag}
+                                    </a>
+                                ))}
+
+                               
+                            </div>
+                        </div>
+                        <div class="opportunities-card__button">
+                            <a href={dt.link}>
+                                <span>See More</span>
+                                <span class="icon" style={{ backgroundImage: `url(${OpportunitiesIconRight})` }} />
+                            </a>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</section>
+<!-- end Opportunities -->
+<style>
+    /*== == == == ==>opportunities<== == == == == */
+    .opportunities {
+        padding: 100px 0;
+    }
+
+    .opportunities-row {
+        padding-top: 60px;
+    }
+
+    .opportunities-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 920px;
+        margin: 0 auto;
+    }
+
+    .opportunities-card + .opportunities-card {
+        margin-top: 30px;
+    }
+
+    .opportunities-card__title {
+        font-size: 25px;
+        line-height: 1.2;
+        color: var(--black);
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+
+    .opportunities-card__tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 15px;
+    }
+
+    .opportunities-card__tags a {
+        display: block;
+        font-size: 18px;
+        line-height: 1.2;
+        color: #636466;
+        background: #f0f1f1;
+        border-radius: 12px;
+        padding: 4px 12px;
+    }
+
+    .opportunities-card__tags a:hover {
+        background-color: var(--color-primary);
+        color: var(--white);
+    }
+
+    .opportunities-card__button a {
+        font-size: 18px;
+        line-height: 1.2;
+        color: var(--color-primary);
+        background: var(--color-secondary);
+
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 120px;
+        height: 40px;
+        transition: all 0.3s ease;
+    }
+    .opportunities-card__button a .icon {
+        display: inline-block;
+        width: 16px;
+        height: 18px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 16px auto;
+    }
+    .opportunities-card__button a:hover {
+        width: 140px;
+        gap: 10px;
+    }
+</style>

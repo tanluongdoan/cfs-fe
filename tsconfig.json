@@ -1,0 +1,17 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@commons/*": ["src/components/commons/*"],
+      "@pages/*": ["src/components/pages/*"],
+      "@assets/*": ["src/assets/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@fonts/*": ["src/assets/fonts/*"],
+      "@scss/*": ["src/assets/scss/*"],
+      "@sanityConfig": ["src/sanityConfig.ts"],
+      "@layout": ["src/layouts/Layout.astro"],
+      
+    }
+  }
+}

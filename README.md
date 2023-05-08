@@ -1,0 +1,5 @@
+- npm update
+- npm outdated
+- npm i -g npm-check-updates 
+- ncu -u
+- npm i

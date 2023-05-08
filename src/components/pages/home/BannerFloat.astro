@@ -1,0 +1,77 @@
+---
+---
+
+<!-- float -->
+<div class="banner-float">
+    <form>
+        <div class="banner-float__block">
+            <h3 class="banner-float__title">Job Type</h3>
+            <div class="banner-float__group">
+                <input type="checkbox" name="fullTime" />
+                <label for="fullTime">Full Time</label>
+            </div>
+            <div class="banner-float__group">
+                <input type="checkbox" name="partTime" />
+                <label for="partTime">Part Time</label><br />
+            </div>
+            <div class="banner-float__group">
+                <input type="checkbox" name="internship" />
+                <label for="internship">Internship</label>
+            </div>
+        </div>
+        <div class="banner-float__block">
+            <h3 class="banner-float__title">Location</h3>
+            <div class="banner-float__group">
+                <input type="checkbox" name="Dunlap" />
+                <label for="Dunlap">Dunlap</label>
+            </div>
+            <div class="banner-float__group">
+                <input type="checkbox" name="dowCity" />
+                <label for="dowCity">Dow City</label>
+            </div>
+            <div class="banner-float__group">
+                <input type="checkbox" name="Panama" />
+                <label for="Panama">Panama</label>
+            </div>
+            <div class="banner-float__group">
+                <input type="checkbox" name="Logan" />
+                <label for="Logan">Logan</label>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end float -->
+<style>
+    /*== == == == ==>float<== == == == == */
+    .banner-float {
+        position: fixed;
+        right: 0;
+        bottom: 20px;
+        z-index: 100;
+        width: 300px;
+        background: #f0f1f1;
+        border-radius: 12px;
+        padding: 20px;
+    }
+    .banner-float__title {
+        font-size: 18px;
+        line-height: 1.2;
+        color: var(--black);
+        font-weight: bold;
+    }
+    .banner-float__group {
+        font-size: 18px;
+        line-height: 1.2;
+        color: #636466;
+        padding-top: 10px;
+    }
+    .banner-float__block + .banner-float__block {
+        padding: 26px 0 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        .banner-float {
+            width: 150px;
+        }
+    }
+</style>

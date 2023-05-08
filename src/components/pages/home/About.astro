@@ -1,0 +1,113 @@
+---
+import image from '@images/home/image.webp';
+---
+
+<!-- About -->
+<section class="about">
+    <div class="container">
+        <!-- card -->
+        <article class="about-card">
+            <h3 class="title">About Cogdill Farm Supply</h3>
+            <picture class="about-card__image">
+                <img src={image} alt="image" />
+            </picture>
+            <p class="text">
+                Cogdill Farm Supply was established in 1979, and has been serving Western Iowa since. We specialize in
+                grain, feed, seed, fertilizer, custom application and propane.
+            </p>
+        </article>
+        <!-- end card -->
+        <!-- list address -->
+        <div class="about-address">
+            <ul class="text">
+                <li>
+                    <p>
+                        <span>Dunlap | Main Office</span>
+                        <span>108 N. 6th St.</span>
+                        <span> Dunlap, IA 51529</span>
+                        <span>712.643.5360</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span> Dow City</span>
+                        <span>104 W. Fulton St.</span>
+                        <span>Dow City, IA 51528</span>
+                        <span>712.674.3344</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span> Panama</span>
+                        <span>P.O. Box 99</span>
+                        <span>Panama, IA 51562</span>
+                        <span>Feed/Grain: 712.489.2535</span>
+                        <span>Fertilizer/Propane: 712.489.2636</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span> Logan</span>
+                        <span>2801 E. Hwy. 30</span>
+                        <span>Logan, IA 51546</span>
+                        <span>712.644.2540</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span>Soldier</span>
+                        <span>310 IA - 37</span>
+                        <span>Soldier, IA 51572</span>
+                        <span>712.884.2201</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <!-- end list address -->
+    </div>
+</section>
+<!-- end About -->
+<style>
+    /*== == == == ==>About<== == == == == */
+    .about {
+        padding: 40px 0 0;
+    }
+
+    .about-card__image {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .about-card .text {
+        max-width: 360px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about-address {
+        padding-top: 30px;
+    }
+
+    .about-address ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .about-address li {
+        display: block;
+    }
+
+    .about-address p span {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-address p span:nth-child(1) {
+        font-weight: bold;
+    }
+</style>

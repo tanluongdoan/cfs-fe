@@ -1,0 +1,83 @@
+/*== == == == ==><== == == == == */
+/* A function that takes a value and returns a value. */
+@function main-to($value) {
+    $result: calc((100vw / 1300px) * $value);
+    @return $result;
+}
+
+/* A function that takes a value and returns a value. */
+
+@function main-to-mobile($value) {
+    $result: calc((100vw / 375px) * $value);
+    @return $result;
+}
+/*== == == == ==>box size<== == == == == */
+@mixin box($value) {
+    width: $value;
+    height: $value;
+}
+/*== == == == ==>media<== == == == == */
+/* A map of breakpoints. */
+$breakpoints: (
+    xs: 575px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1600px,
+);
+
+/* A mixin that takes a breakpoint as a parameter and outputs a media query that uses the minimum width
+of that breakpoint. */
+@mixin breakpoint-min($breakpoint) {
+    $queries: map-get($breakpoints, $breakpoint);
+
+    @if not $queries {
+        // @error "No value could be retrieved from `#{$breakpoint}`. "
+        // +"Please make sure it is defined in `$breakpoints` map.";
+    }
+
+    @media (min-width: calc($queries + 1px)) {
+        @content;
+    }
+}
+
+/* A mixin that takes a breakpoint as a parameter and outputs a media query that uses the maximum width
+
+of that breakpoint. */
+@mixin breakpoint-max($breakpoint) {
+    $queries: map-get($breakpoints, $breakpoint);
+
+    @if not $queries {
+        // @error "No value could be retrieved from `#{$breakpoint}`. "
+        // +"Please make sure it is defined in `$breakpoints` map.";
+    }
+
+    @media (max-width: $queries) {
+        @content;
+    }
+}
+
+/* A mixin that takes two breakpoints as parameters and outputs a media query that uses the minimum
+width of the first breakpoint and the maximum width of the second breakpoint. */
+@mixin breakpoint($breakpointMin, $breakpointMax) {
+    $min: map-get($breakpoints, $breakpointMin);
+    $max: map-get($breakpoints, $breakpointMax);
+
+    @if not $min {
+        // @error "No value could be retrieved from `#{$breakpointMin}`. "
+        // +"Please make sure it is defined in `$breakpointMin` map.";
+    }
+
+    @if not $max {
+        // @error "No value could be retrieved from `#{$breakpointMax}`. "
+        // +"Please make sure it is defined in `$breakpointMax` map.";
+    }
+
+    @if $min >$max {
+        // @error "please enter max greater than smooth: min is`#{$min}`, max is`#{$max}`";
+    }
+
+    @media (min-width: calc($min + 1px)) and (max-width: $max) {
+        @content;
+    }
+}
